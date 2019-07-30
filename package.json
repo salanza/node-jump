@@ -1,0 +1,31 @@
+{
+  "name": "jump",
+  "version": "1.0.0",
+  "description": "A node module for accessing Jump APIs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salanza/node-jump.git"
+  },
+  "keywords": [
+    "Node",
+    "Module",
+    "Jump"
+  ],
+  "author": "Salman Anza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salanza/node-jump/issues"
+  },
+  "homepage": "https://github.com/salanza/node-jump#readme",
+  "dependencies": {
+    "async": "^3.1.0",
+    "lodash": "^4.17.15"
+  }
+}
