@@ -1,8 +1,11 @@
 {
-  "name": "jump",
+  "name": "node-jump",
   "version": "1.0.0",
   "description": "A node module for accessing Jump APIs",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.12.0"
+  },
   "directories": {
     "lib": "lib"
   },
