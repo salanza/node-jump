@@ -8,27 +8,20 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+The following is required to install node-jump
 
 ```
-Give examples
+Latest version of npm
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+In your project directory, run the following command:
 
 ```
-Give the example
+npm install node-jump
 ```
 
-And repeat
-
-```
-until finished
-```
 
 End with an example of getting some data out of the system or using it for a little demo
 
@@ -36,17 +29,9 @@ End with an example of getting some data out of the system or using it for a lit
 
 Example how to use API
 
-### Start going over functions
+### Functionality Overview
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+node-jump provides the following functions for accessing Jump's APIs
 
 ```
 Give an example
