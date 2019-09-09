@@ -10,6 +10,17 @@ The following is required to install node-jump:
 Latest version of npm
 ```
 
+### Dependencies 
+
+The following is a list of dependencies used by node-jump:
+
+```
+async: ^3.1.0,
+axios: ^0.19.0,
+lodash: ^4.17.15
+```
+
+
 ### Installing
 
 In your project directory, run the following command:
@@ -20,7 +31,7 @@ npm install node-jump
 
 ## Functionality Overview
 
-node-jump provides wrapper functions for accessing Jump's GBFS api. Each function takes **one** parameter, ***cityCode***, and returns a ***promise***. A ***cityCode*** refers to the abbreviated city name used by Jump as part of their GBFS url. For example, the URL to get Jump GBFS data for San Francisco, California:
+node-jump provides several functions for accessing Jump's GBFS api. Each function takes **one** parameter, ***cityCode***, and returns a ***promise***. A ***cityCode*** refers to the abbreviated city name used by Jump as part of their GBFS url. For example, the URL to get Jump GBFS data for San Francisco, California:
 
 ```
 https://sf.jumpbikes.com/opendata/gbfs.json
