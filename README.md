@@ -1,6 +1,6 @@
 # node-jump
 
-A node-module to access Jump's open data APIs
+A node-module that wraps Jump's open data APIs into several easy to use functions. 
 
 ### Prerequisites
 
@@ -113,7 +113,7 @@ Example Response:
 
 ### getPaymentPlan(cityCode)
 Retrieves payment plan and rental configuration for a given city.
-Combines results from Jump's **system hours** and **payment plan** apis.
+Combines results from Jump's **system hours** and **payment plan** APIs.
 
 Example Response:
 ```
@@ -153,7 +153,7 @@ Example Response:
 
 ### getStationData(cityCode)
 Retrieve stations data for a given city.
-Combines results from Jump's **stations status** and **station info**.
+Combines results from Jump's **stations status** and **station info** APIs.
 
 Example Response:
 ```
@@ -212,7 +212,7 @@ Example Response:
 
 ### getSystemData(cityCode)
 Retrieves system data for a given city.
-Combines results from **system information**, **system regions** and **system calender**.
+Combines results from Jump's **system information**, **system regions** and **system calender** APIs.
 
 Example Response:
 ```
