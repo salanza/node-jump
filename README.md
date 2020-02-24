@@ -31,7 +31,7 @@ npm install node-jump
 
 ## Functionality Overview
 
-node-jump provides several functions for accessing Jump's GBFS api. Each function takes **one** parameter, ***cityCode***, and returns a ***promise***. A ***cityCode*** refers to the abbreviated city name used by Jump as part of their GBFS url. For example, the URL to get Jump GBFS data for San Francisco, California:
+node-jump provides several functions for accessing Jump's GBFS api. Each function takes **two** parameters, ***cityCode*** (required) and ***rideType*** (optional), and returns a ***promise***. A ***cityCode*** refers to the abbreviated city name used by Jump as part of their GBFS url. For example, the URL to get Jump GBFS data for San Francisco, California:
 
 ```
 https://sf.jumpbikes.com/opendata/gbfs.json
@@ -43,8 +43,9 @@ Similarly, for Austin, Texas:
 ```
 https://atx.jumpbikes.com/opendata/gbfs.json
 ```
+A ***rideType*** refers to the two available modes of transportation Jump provides, scooters or bikes. By default, node-jump will return data for both type of rides. To request data for a specific mode, pass in the string **"bike"** or **"scooter"** for bikes and scooters respectively.
 
-### getFileDirectory(cityCode)
+### getFileDirectory(rideType, cityCode)
 An async function that retrieves a city's GBFS directory. 
 
 Example response:
@@ -97,7 +98,7 @@ Example response:
 }
 ```
 
-### getFreeBikes(cityCode)
+### getFreeBikes(rideType, cityCode)
 Retrieves all available bikes within a given city.
 
 Example Response:
@@ -122,7 +123,7 @@ Example Response:
        jump_vehicle_type: 'bike' }]
 ```
 
-### getPaymentPlan(cityCode)
+### getPaymentPlan(rideType, cityCode)
 Retrieves payment plan and rental configuration for a given city.
 Combines results from Jump's **system hours** and **payment plan** APIs.
 
@@ -162,7 +163,7 @@ Example Response:
 }
 ```
 
-### getStationData(cityCode)
+### getStationData(rideType, cityCode)
 Retrieve stations data for a given city.
 Combines results from Jump's **stations status** and **station info** APIs.
 
@@ -211,7 +212,7 @@ Example Response:
        'PHONE' ] } ]
 ```
 
-### getSystemAlerts(cityCode)
+### getSystemAlerts(rideType, cityCode)
 Retrieves all alerts within a given city.
 
 Example Response:
@@ -221,7 +222,7 @@ Example Response:
 }
 ```
 
-### getSystemData(cityCode)
+### getSystemData(rideType, cityCode)
 Retrieves system data for a given city.
 Combines results from Jump's **system information**, **system regions** and **system calender** APIs.
 
