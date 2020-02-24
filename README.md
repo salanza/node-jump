@@ -48,79 +48,205 @@ A ***rideType*** refers to the two available modes of transportation Jump provid
 ### getFileDirectory(rideType, cityCode)
 An async function that retrieves a city's GBFS directory. 
 
-Example response:
+Example 1: Request GBFS directory for all ride types in Austin, Texas
 ```
+Request:
+http://localhost:3000/Jump/gbfs/?cityCode=atx
+
+Response:
 {
-  en: {
-    feeds: [
-      {
-        "name": "gbfs",
-        "url": "http://sf.jumpbikes.com/opendata/gbfs.json"
-      },
-      {
-        "name": "system_information",
-        "url": "http://sf.jumpbikes.com/opendata/system_information.json"
-      },
-      {
-        "name": "station_information",
-        "url": "http://sf.jumpbikes.com/opendata/station_information.json"
-      },
-      {
-        "name": "station_status",
-        "url": "http://sf.jumpbikes.com/opendata/station_status.json"
-      },
-      {
-        "name": "free_bike_status",
-        "url": "http://sf.jumpbikes.com/opendata/free_bike_status.json"
-      },
-      {
-        "name": "system_hours",
-        "url": "http://sf.jumpbikes.com/opendata/system_hours.json"
-      },
-      {
-        "name": "system_calendar",
-        "url": "http://sf.jumpbikes.com/opendata/system_calendar.json"
-      },
-      {
-        "name": "system_regions",
-        "url": "http://sf.jumpbikes.com/opendata/system_regions.json"
-      },
-      {
-        "name": "system_pricing_plans",
-        "url": "http://sf.jumpbikes.com/opendata/system_pricing_plans.json"
-      },
-      {
-        "name": "system_alerts",
-        "url": "http://sf.jumpbikes.com/opendata/system_alerts.json"
-      }
-    ]
+  "bikes": {
+    "en": {
+      "feeds": [
+        {
+          "name": "gbfs",
+          "url": "https://gbfs.uber.com/v1/atxb/gbfs.json"
+        },
+        {
+          "name": "system_information",
+          "url": "https://gbfs.uber.com/v1/atxb/system_information.json"
+        },
+        {
+          "name": "station_information",
+          "url": "https://gbfs.uber.com/v1/atxb/station_information.json"
+        },
+        {
+          "name": "station_status",
+          "url": "https://gbfs.uber.com/v1/atxb/station_status.json"
+        },
+        {
+          "name": "free_bike_status",
+          "url": "https://gbfs.uber.com/v1/atxb/free_bike_status.json"
+        },
+        {
+          "name": "system_hours",
+          "url": "https://gbfs.uber.com/v1/atxb/system_hours.json"
+        },
+        {
+          "name": "system_calendar",
+          "url": "https://gbfs.uber.com/v1/atxb/system_calendar.json"
+        },
+        {
+          "name": "system_regions",
+          "url": "https://gbfs.uber.com/v1/atxb/system_regions.json"
+        },
+        {
+          "name": "system_pricing_plans",
+          "url": "https://gbfs.uber.com/v1/atxb/system_pricing_plans.json"
+        },
+        {
+          "name": "system_alerts",
+          "url": "https://gbfs.uber.com/v1/atxb/system_alerts.json"
+        }
+      ]
+    }
+  },
+  "scooters": {
+    "en": {
+      "feeds": [
+        {
+          "name": "gbfs",
+          "url": "https://gbfs.uber.com/v1/atxs/gbfs.json"
+        },
+        {
+          "name": "system_information",
+          "url": "https://gbfs.uber.com/v1/atxs/system_information.json"
+        },
+        {
+          "name": "station_information",
+          "url": "https://gbfs.uber.com/v1/atxs/station_information.json"
+        },
+        {
+          "name": "station_status",
+          "url": "https://gbfs.uber.com/v1/atxs/station_status.json"
+        },
+        {
+          "name": "free_bike_status",
+          "url": "https://gbfs.uber.com/v1/atxs/free_bike_status.json"
+        },
+        {
+          "name": "system_hours",
+          "url": "https://gbfs.uber.com/v1/atxs/system_hours.json"
+        },
+        {
+          "name": "system_calendar",
+          "url": "https://gbfs.uber.com/v1/atxs/system_calendar.json"
+        },
+        {
+          "name": "system_regions",
+          "url": "https://gbfs.uber.com/v1/atxs/system_regions.json"
+        },
+        {
+          "name": "system_pricing_plans",
+          "url": "https://gbfs.uber.com/v1/atxs/system_pricing_plans.json"
+        },
+        {
+          "name": "system_alerts",
+          "url": "https://gbfs.uber.com/v1/atxs/system_alerts.json"
+        }
+      ]
+    }
+  }
+}
+```
+
+Example 2: Request GBFS directory for **bikes** in Austin, Texas
+```
+Request:
+http://localhost:3000/Jump/gbfs/?rideType=bike&cityCode=atx
+
+Response:
+{
+  "bikes": {
+    "en": {
+      "feeds": [
+        {
+          "name": "gbfs",
+          "url": "https://gbfs.uber.com/v1/atxb/gbfs.json"
+        },
+        {
+          "name": "system_information",
+          "url": "https://gbfs.uber.com/v1/atxb/system_information.json"
+        },
+        ...
+        {
+          "name": "system_alerts",
+          "url": "https://gbfs.uber.com/v1/atxb/system_alerts.json"
+        }
+      ]
+    }
   }
 }
 ```
 
 ### getFreeBikes(rideType, cityCode)
-Retrieves all available bikes within a given city.
+Retrieves all available rides within a given city.
 
-Example Response:
+Example 1: Request all available rides in Autin, Texas
 ```
-{ bikes:
-   [ { bike_id: 'bike_79814',
-       name: '14881',
-       lon: -122.399695,
-       lat: 37.79277166666667,
-       is_reserved: 0,
-       is_disabled: 0,
-       jump_ebike_battery_level: '51%',
-       jump_vehicle_type: 'bike' },
-       ...
-       { bike_id: 'bike_145948',
-       name: '21613',
-       lon: -122.40180833333334,
-       lat: 37.791986666666666,
-       is_reserved: 0,
-       is_disabled: 0,
-       jump_ebike_battery_level: '78%',
-       jump_vehicle_type: 'bike' }]
+Request:
+http://localhost:3000/Jump/bikes/?cityCode=atx
+
+Response:
+  "bikes": {
+    "bikes": [
+      {
+        "bike_id": "007f6be0-a3e3-46d5-981e-7aa51b3d01c5",
+        "lat": 30.290793333333333,
+        "lon": -97.75064333333333,
+        "is_reserved": 0,
+        "is_disabled": 0,
+        "jump_vehicle_type": "bike",
+        "jump_ebike_battery_level": "83%",
+        "jump_vehicle_name": "15020"
+      },
+      {
+        "bike_id": "00c80078-b6a0-4cf7-ab48-84322bbe20ef",
+        "lat": 30.259125,
+        "lon": -97.73953,
+        "is_reserved": 0,
+        "is_disabled": 0,
+        "jump_vehicle_type": "bike",
+        "jump_ebike_battery_level": "51%",
+        "jump_vehicle_name": "11895"
+      },
+      ...
+      {
+        "bike_id": "00d7d14e-5db8-402a-ad1b-947340f49147",
+        "lat": 30.269046666666668,
+        "lon": -97.74637666666666,
+        "is_reserved": 0,
+        "is_disabled": 0,
+        "jump_vehicle_type": "bike",
+        "jump_ebike_battery_level": "65%",
+        "jump_vehicle_name": "16889"
+      }
+     ],
+     "scooters": [
+      {
+        "bike_id": "001613f1-7554-40f7-8507-f15d56617eae",
+        "lat": 30.260003,
+        "lon": -97.749305,
+        "is_reserved": 0,
+        "is_disabled": 0,
+        "jump_vehicle_type": "scooter",
+        "jump_ebike_battery_level": "67%",
+        "jump_vehicle_name": "OOD948"
+      },
+      ...
+      {
+        "bike_id": "00374cae-9921-4444-aa9b-11d62d04dec7",
+        "lat": 30.254461,
+        "lon": -97.748026,
+        "is_reserved": 0,
+        "is_disabled": 0,
+        "jump_vehicle_type": "scooter",
+        "jump_ebike_battery_level": "23%",
+        "jump_vehicle_name": "TLS804"
+      }
+    ]
+  }
+}
 ```
 
 ### getPaymentPlan(rideType, cityCode)
@@ -215,10 +341,32 @@ Example Response:
 ### getSystemAlerts(rideType, cityCode)
 Retrieves all alerts within a given city.
 
-Example Response:
+Example 1: Request alerts for all ride types in Austin, Texas
 ```
+Request:
+http://localhost:3000/Jump/alerts/?cityCode=atx
+
+Response:
 {
-  alerts:[]
+  "bikes": {
+    "alerts": []
+  },
+  "scooters": {
+    "alerts": []
+  }
+}
+
+```
+Example 2: Request alerts for only **scooters** in Austin, Texas
+```
+Request:
+http://localhost:3000/Jump/alerts/?rideType=scooter&cityCode=atx
+
+Response:
+{
+  "scooters": {
+    "alerts": []
+  }
 }
 ```
 
